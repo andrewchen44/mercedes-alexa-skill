@@ -1,6 +1,7 @@
 "use strict";
 const Alexa = require("alexa-sdk");
 const axios = require ("axios");
+const config = require("../config.js")
 
 const APP_ID = "amzn1.ask.skill.a37ff3a9-4dfd-47c4-95ca-7a0f2546e49b";
 const SKILL_NAME = "getOdometer";
@@ -22,7 +23,7 @@ const handlers = {
     axios.get("https://api.mercedes-benz.com/experimental/connectedvehicle/v1/vehicles/2D32AD7F266D8E0F79/odometer", {
       params: {
         accept: application/json,
-        authorization: 'insert auth token here',
+        authorization: config.accessToken,
       },
     }).then((response) => {
         const odometer = response.odometer.value;
