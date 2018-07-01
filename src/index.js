@@ -1,13 +1,14 @@
 /* eslint-disable  func-names */
 /* eslint quote-props: ["error", "consistent"]*/
 
-
 "use strict";
 const Alexa = require("alexa-sdk");
+const axios = require ("axios");
+
 const APP_ID = 'amzn1.ask.skill.a37ff3a9-4dfd-47c4-95ca-7a0f2546e49b';
 
 const SKILL_NAME = "getOdometer";
-const GET_FACT_MESSAGE = "Your Mercedes odometer is: ";
+const GET_ODOMETER_MESSAGE = "Your Mercedes odometer is: ";
 const HELP_MESSAGE =
   "You can ask me what your mercedes odometer is, or, you can say exit... What can I help you with?";
 const HELP_REPROMPT = "What can I help you with?";
@@ -44,17 +45,18 @@ const handlers = {
     const factArr = data;
     const factIndex = Math.floor(Math.random() * factArr.length);
     const randomFact = factArr[factIndex];
-    const speechOutput = GET_FACT_MESSAGE + randomFact;
-
+    const speechOutput = 'Hello there, what would you like to know about your mercedes?';
+ 
     this.response.cardRenderer(SKILL_NAME, randomFact);
     this.response.speak(speechOutput);
     this.emit(":responseReady");
   },
+  "getOdometer": function() {
+    let speechOutput = GET_ODOMETER_MESSAGE + '5000';
+    // make call to mercedes api, speak the results
+  },
   "AMAZON.HelpIntent": function() {
-    const speechOutput = HELP_MESSAGE;
-    const reprompt = HELP_REPROMPT;
-
-    this.response.speak(speechOutput).listen(reprompt);
+    this.response.speak(HELP_MESSAGE).listen(HELP_REPROMPT);
     this.emit(":responseReady");
   },
   "AMAZON.CancelIntent": function() {
