@@ -53,6 +53,8 @@ const handlers = {
   },
   "getOdometer": function() {
     let speechOutput = GET_ODOMETER_MESSAGE + '5000';
+    this.response.speak(speechOutput);
+    this.emit(":tellWithCard", speechOutput);
     // make call to mercedes api, speak the results
   },
   "AMAZON.HelpIntent": function() {

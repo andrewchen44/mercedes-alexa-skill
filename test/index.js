@@ -9,8 +9,7 @@ describe("Testing getOdometer Intext", function () {
   var speechResponse = null;
   var speechError = null;
 
-  before(function(done) {``
-    console.log('HANDLER', index.handler)
+  before(function(done) {
     index.handler({
       "version": "1.0",
       "session": {
@@ -47,15 +46,12 @@ describe("Testing getOdometer Intext", function () {
         "shouldLinkResultBeReturned": false
       }
     }, ctx);
-    ctx.Promise.then(reponse => {
-        console.log('WTFFFFFF')
-        console.log('response------>', response);
+    ctx.Promise.then(response => {
+        console.log(response);
         speechResponse = response;
-        console.log(speechResponse);
         done();
       })
       .catch(error => {
-        console.log('speech error -------->', error);
         speechError = error;
         done();
       })
