@@ -1,7 +1,7 @@
 "use strict";
 const Alexa = require("alexa-sdk");
 const axios = require ("axios");
-const config = require("../config.js")
+const config = require("./config.js")
 
 const APP_ID = "amzn1.ask.skill.a37ff3a9-4dfd-47c4-95ca-7a0f2546e49b";
 const SKILL_NAME = "getOdometer";

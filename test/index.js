@@ -1,6 +1,6 @@
 const context = require("aws-lambda-mock-context");
 const expect = require("chai").expect;
-const index = require ("../src/index.js");
+const index = require ("../index.js");
 
 const ctx = context();
 
