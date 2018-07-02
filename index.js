@@ -27,7 +27,7 @@ const handlers = {
     this.emit(":responseReady");
   },
   "GetLicensePlateIntent": function() {
-    this.response.speak();
+    this.response.speak(LICENSE_PLATE_MESSAGE);
     this.emit(":responseReady");
   },
   "LockDoorsIntent": function() {
